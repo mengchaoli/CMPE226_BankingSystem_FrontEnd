@@ -1,6 +1,6 @@
 import { Menu, Icon, Button } from 'antd';
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 
 const { SubMenu } = Menu;
 
@@ -16,6 +16,7 @@ class CustomMenu extends React.Component {
     };
 
     render() {
+        const { changeContent } = this.props;
         return (
             <div style={{ width: 256 }}>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
@@ -27,8 +28,9 @@ class CustomMenu extends React.Component {
                     mode="inline"
                     theme="dark"
                     inlineCollapsed={this.state.collapsed}
+                    onClick={changeContent}
                 >
-                    <Menu.Item key="1">
+                    <Menu.Item key="1" >
                         <Icon type="pie-chart" />
                         <span>Option 1</span>
                     </Menu.Item>
