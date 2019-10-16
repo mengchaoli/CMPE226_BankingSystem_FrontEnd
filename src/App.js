@@ -4,6 +4,8 @@ import './App.css';
 import {Button, Card, Col, Icon, Row, Typography} from "antd";
 import Pic from "./assets/960x0.jpg";
 import CustomMenu from "./Menu";
+import FilterTag from "./FilterTag";
+import CustomerList from "./CustomerList";
 
 class App extends React.Component {
 
@@ -43,16 +45,20 @@ class App extends React.Component {
         </Col>
 
         <Col span={12}>
-        <Row>
-        <Typography.Title level={4}> Title </Typography.Title>
-        <Typography.Paragraph> {contentOne} </Typography.Paragraph>
-        </Row>
+          <Row>
+            <Typography.Title level={4}> Title </Typography.Title>
+            <Typography.Paragraph> {contentOne} </Typography.Paragraph>
+          </Row>
 
-        <Row>
-        <Typography.Text type='secondary'>Text Two</Typography.Text>
-        <Button type='link' size='small' icon='linkedin' />
-        <Icon type="linkedin" theme="filled" style={{color: 'green'}} />
-        </Row>
+          <Row>
+            {/*<Typography.Text type='secondary'>Text Two</Typography.Text>*/}
+            {/*<Button type='link' size='small' icon='linkedin' />*/}
+            {/*<Icon type="linkedin" theme="filled" style={{color: 'green'}} />*/}
+            <FilterTag />
+          </Row>
+          <Row>
+            <CustomerList />
+          </Row>
         </Col>
         </Row>
         </Card>
