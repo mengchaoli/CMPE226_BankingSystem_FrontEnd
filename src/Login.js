@@ -43,18 +43,18 @@ class Login extends React.Component {
     }
 
     handleClick(event){
-        var apiBaseUrl = "http://localhost:5000/api/";
-        var self = this;
-        var payload={
-            "email":this.state.username,
-            "password":this.state.password
-        }
+        let apiBaseUrl = "http://localhost:5000/api/";
+        let self = this;
+        let payload = {
+            "email": this.state.username,
+            "password": this.state.password
+        };
         axios.post(apiBaseUrl+'login', payload)
             .then(function (response) {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("Login successfully");
-                    var uploadScreen=[];
+                    let uploadScreen = [];
                     uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
                     self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
                 }
