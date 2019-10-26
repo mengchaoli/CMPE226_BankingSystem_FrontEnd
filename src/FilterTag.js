@@ -7,7 +7,7 @@ class FilterTag extends React.Component {
     render() {
         return (
             <div>
-                <h4 style={{ marginBottom: 16 }}>Presets:</h4>
+                <h4 style={{ marginBottom: 16 }}>Filter:</h4>
                 <div>
                     <Row>
                         <Tag color="magenta">checking account</Tag>

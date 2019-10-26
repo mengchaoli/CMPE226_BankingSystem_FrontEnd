@@ -16,9 +16,9 @@ class Loginscreen extends Component {
         }
     }
     componentWillMount(){
-        var loginscreen=[];
+        let loginscreen=[];
         loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
-        var loginmessage = "Not registered yet, Register Now";
+        let loginmessage = "Not registered yet, Register Now";
         this.setState({
             loginscreen:loginscreen,
             loginmessage:loginmessage
@@ -42,9 +42,9 @@ class Loginscreen extends Component {
 
     handleClick(event){
         // console.log("event",event);
-        var loginmessage;
+        let loginmessage;
         if(this.state.isLogin){
-            var loginscreen=[];
+            let loginscreen=[];
             loginscreen.push(<Register parentContext={this}/>);
             loginmessage = "Already registered.Go to Login";
             this.setState({
@@ -55,7 +55,7 @@ class Loginscreen extends Component {
             })
         }
         else{
-            var loginscreen=[];
+            let loginscreen=[];
             loginscreen.push(<Login parentContext={this}/>);
             loginmessage = "Not Registered yet.Go to registration";
             this.setState({

@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Login from './Login';
-import axios from 'axios';
-class Register extends Component {
+import React, {Component} from 'react';
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
+import axios from "axios";
+import Login from "./Login";
+import {Alert} from "antd";
+
+class AddCustomer extends Component {
     constructor(props){
         super(props);
         this.state={
             first_name:'',
             last_name:'',
             email:'',
-            password:''
+            password:'',
+            account_no:''
         }
     }
     render() {
         return (
-            <div>
+            <div span={12}>
                 <MuiThemeProvider>
                     <div>
-                        <AppBar
-                            title="Register"
-                        />
+                        {/*<AppBar*/}
+                        {/*    title="Open Account"*/}
+                        {/*/>*/}
                         <TextField
                             hintText="Enter your First Name"
                             floatingLabelText="First Name"
@@ -49,6 +52,12 @@ class Register extends Component {
                             onChange = {(event,newValue) => this.setState({password:newValue})}
                         />
                         <br/>
+                        <TextField
+                            hintText="Enter your Account Number"
+                            floatingLabelText="Account Number"
+                            onChange = {(event,newValue) => this.setState({account_no:newValue})}
+                        />
+                        <br/>
                         <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
                     </div>
                 </MuiThemeProvider>
@@ -58,40 +67,30 @@ class Register extends Component {
 
     handleClick(event){
         var apiBaseUrl = "http://localhost:5000/api/";
-        console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password);
+        console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password,this.state.account_no);
         //To be done:check for empty values before hitting submit
         let self = this;
         let payload = {
             "first_name": this.state.first_name,
             "last_name": this.state.last_name,
             "email": this.state.email,
-            "password": this.state.password
+            "password": this.state.password,
+            "account_no": this.state.account_no
         };
-        axios.post(apiBaseUrl+'/register', payload)
+        axios.post(apiBaseUrl+'/addCustomer', payload)
             .then(function (response) {
                 console.log(response);
                 if(response.data.code === 200){
-                    //  console.log("registration successfull");
-                    let loginscreen=[];
-                    loginscreen.push(<Login parentContext={this}/>);
-                    let loginmessage = "Not Registered yet.Go to registration";
-                    self.props.parentContext.setState({loginscreen:loginscreen,
-                        loginmessage:loginmessage,
-                        buttonLabel:"Register",
-                        isLogin:true
-                    });
+                    console.log("add customer successfully");
+                    Alert("add customer successfully!");
                 }
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
-
 }
 const style = {
     margin: 15,
 };
-
-
-
-export default Register;
+export default AddCustomer;

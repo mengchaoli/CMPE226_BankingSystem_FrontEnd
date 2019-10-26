@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import UploadScreen from './UploadScreen';
+import Main from './Main';
 
 class Login extends React.Component {
     constructor(props){
@@ -55,7 +56,8 @@ class Login extends React.Component {
                 if(response.data.code === 200){
                     console.log("Login successfully");
                     let uploadScreen = [];
-                    uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
+                    uploadScreen.push(<Main appContext={self.props.appContext}/>);
+                    //uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
                     self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
                 }
                 else if(response.data.code === 204){

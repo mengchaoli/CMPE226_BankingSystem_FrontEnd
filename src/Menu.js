@@ -1,6 +1,5 @@
 import { Menu, Icon, Button } from 'antd';
 import React from 'react';
-//import ReactDOM from 'react-dom';
 
 const { SubMenu } = Menu;
 
@@ -26,13 +25,13 @@ class CustomMenu extends React.Component {
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     mode="inline"
-                    theme="dark"
+                    theme="light"
                     inlineCollapsed={this.state.collapsed}
                     onClick={changeContent}
                 >
                     <Menu.Item key="1" >
                         <Icon type="pie-chart" />
-                        <span>Option 1</span>
+                        <span>My Business</span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop" />
@@ -47,11 +46,11 @@ class CustomMenu extends React.Component {
                         title={
                             <span>
                                 <Icon type="mail" />
-                                <span>Navigation One</span>
+                                <span>Action</span>
                             </span>
                         }
                     >
-                        <Menu.Item key="5">Option 5</Menu.Item>
+                        <Menu.Item key="5">Add Customer</Menu.Item>
                         <Menu.Item key="6">Option 6</Menu.Item>
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
