@@ -20,7 +20,7 @@ class AddCustomer extends Component {
     }
     render() {
         return (
-            <div span={12}>
+            <div span={16}>
                 <MuiThemeProvider>
                     <div>
                         {/*<AppBar*/}

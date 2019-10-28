@@ -7,17 +7,15 @@ class MyBusiness extends Component {
 
     render() {
         return (
-            <div>
-                <Col span={12}>
-                    <Row>
-                        <FilterTag />
-                    </Row>
+            <Col span={16}>
+                <Row>
+                    <FilterTag />
+                </Row>
 
-                    <Row>
-                        <CustomerList />
-                    </Row>
-                </Col>
-            </div>
+                <Row>
+                    <CustomerList />
+                </Row>
+            </Col>
         );
     }
 }

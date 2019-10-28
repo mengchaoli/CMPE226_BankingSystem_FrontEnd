@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Button, Card, Col, Icon, Row, Typography} from "antd";
 import Pic from "./assets/960x1.jpg";
@@ -33,7 +32,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { contentOne, key } = this.state;
+    //const { contentOne, key } = this.state;
     return (
         <>
             <Card bodyStyle={{ backgroundImage: `url(${Pic})`, height: 500, width: '100%',
@@ -48,13 +47,16 @@ class Main extends React.Component {
             <Card>
                 <Row gutter={32}>
 
-                    <Col span={12}>
+                    <Col span={8}>
                       <CustomMenu changeContent={this.handleChangeContentOne.bind(this)} />
                     </Col>
 
-                    <Col>
-                        {this.state.card2}
-                    </Col>
+                    {/*second col*/}
+                    {this.state.card2}
+
+                    {/*<Col>*/}
+                    {/*    */}
+                    {/*</Col>*/}
                 </Row>
             </Card>
         </>
