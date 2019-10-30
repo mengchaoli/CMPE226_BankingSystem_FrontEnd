@@ -5,13 +5,27 @@ import Pic from "./assets/960x1.jpg";
 import CustomMenu from "./Menu";
 import MyBusiness from "./MyBusiness";
 import AddCustomer from "./AddCustomer";
+import MyAlert from "./MyAlert";
 
 class Main extends React.Component {
 
   state = {
       contentOne: 'Text One',
+      isAddCustomerSuccess: false,
       key: '1',
       card2: <MyBusiness />,
+  }
+
+  conditionalRender() {
+      if (this.state.key === '1') {
+          return <MyBusiness/>;
+      } else if(this.state.key === '5') {
+          if (this.state.isAddCustomerSuccess) {
+              return <MyAlert/>;
+          } else {
+              return <AddCustomer onceAddCustomerSuccess={this.handleChangeIsAddCustomerSuccess.bind(this)}/>;
+          }
+      }
   }
 
   handleChangeContentOne(menuKey) {
@@ -19,17 +33,23 @@ class Main extends React.Component {
       switch(menuKey.key) {
           case "1":
               this.setState(
-                  {card2: <MyBusiness/>}
+                  {key: '1'}
               );
               break;
 
           case "5":
               this.setState(
-                  {card2: <AddCustomer/>}
+                  {key: '5'}
               );
               break;
       }
   }
+
+    handleChangeIsAddCustomerSuccess() {
+      this.setState(
+          {isAddCustomerSuccess: true}
+      );
+    }
 
   render() {
     //const { contentOne, key } = this.state;
@@ -52,7 +72,7 @@ class Main extends React.Component {
                     </Col>
 
                     {/*second col*/}
-                    {this.state.card2}
+                    {this.conditionalRender()}
 
                     {/*<Col>*/}
                     {/*    */}

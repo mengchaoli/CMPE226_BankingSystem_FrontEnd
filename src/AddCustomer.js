@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
+import {Col} from 'antd';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import axios from "axios";
 import Login from "./Login";
-import {Alert} from "antd";
 
 class AddCustomer extends Component {
     constructor(props){
@@ -18,9 +17,10 @@ class AddCustomer extends Component {
             account_no:''
         }
     }
+
     render() {
         return (
-            <div span={16}>
+            <Col span={16}>
                 <MuiThemeProvider>
                     <div>
                         {/*<AppBar*/}
@@ -58,10 +58,10 @@ class AddCustomer extends Component {
                             onChange = {(event,newValue) => this.setState({account_no:newValue})}
                         />
                         <br/>
-                        <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+                        <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick.bind(this)(event)}/>
                     </div>
                 </MuiThemeProvider>
-            </div>
+            </Col>
         );
     }
 
@@ -77,12 +77,14 @@ class AddCustomer extends Component {
             "password": this.state.password,
             "account_no": this.state.account_no
         };
+        const callback = this.props.onceAddCustomerSuccess;
         axios.post(apiBaseUrl+'/addCustomer', payload)
             .then(function (response) {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("add customer successfully");
-                    Alert("add customer successfully!");
+                    {callback()}
+                    //alert("Customer added successfully!");
                 }
             })
             .catch(function (error) {
