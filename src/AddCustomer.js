@@ -69,7 +69,6 @@ class AddCustomer extends Component {
         var apiBaseUrl = "http://localhost:5000/api/";
         console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password,this.state.account_no);
         //To be done:check for empty values before hitting submit
-        let self = this;
         let payload = {
             "first_name": this.state.first_name,
             "last_name": this.state.last_name,

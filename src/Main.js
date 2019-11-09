@@ -1,29 +1,36 @@
 import React from 'react';
 import './App.css';
-import {Button, Card, Col, Icon, Row, Typography} from "antd";
+import {Card, Col, Row} from "antd";
 import Pic from "./assets/960x1.jpg";
 import CustomMenu from "./Menu";
 import MyBusiness from "./MyBusiness";
 import AddCustomer from "./AddCustomer";
 import MyAlert from "./MyAlert";
+import DeleteCustomer from "./DeleteCustomer";
 
 class Main extends React.Component {
 
   state = {
       contentOne: 'Text One',
       isAddCustomerSuccess: false,
+      isDeleteCustomerSuccess: false,
       key: '1',
-      card2: <MyBusiness />,
-  }
+  };
 
   conditionalRender() {
       if (this.state.key === '1') {
           return <MyBusiness/>;
-      } else if(this.state.key === '5') {
+      } else if (this.state.key === '5') {
           if (this.state.isAddCustomerSuccess) {
               return <MyAlert/>;
           } else {
               return <AddCustomer onceAddCustomerSuccess={this.handleChangeIsAddCustomerSuccess.bind(this)}/>;
+          }
+      } else if (this.state.key === '6') {
+          if (this.state.isDeleteCustomerSuccess) {
+              return <MyAlert/>
+          } else {
+              return <DeleteCustomer onDeleteCustomerSuccess={this.handleChangeIsDeleteCustomerSuccess.bind(this)}/>;
           }
       }
   }
@@ -42,9 +49,19 @@ class Main extends React.Component {
                   {key: '5'}
               );
               break;
+
+          case "6":
+              this.setState(
+                  {key: '6'}
+              );
+              break;
       }
   }
-
+    handleChangeIsDeleteCustomerSuccess() {
+      this.setState(
+          {isDeleteCustomerSuccess: true}
+      );
+    }
     handleChangeIsAddCustomerSuccess() {
       this.setState(
           {isAddCustomerSuccess: true}
@@ -52,7 +69,6 @@ class Main extends React.Component {
     }
 
   render() {
-    //const { contentOne, key } = this.state;
     return (
         <>
             <Card bodyStyle={{ backgroundImage: `url(${Pic})`, height: 500, width: '100%',
@@ -74,9 +90,6 @@ class Main extends React.Component {
                     {/*second col*/}
                     {this.conditionalRender()}
 
-                    {/*<Col>*/}
-                    {/*    */}
-                    {/*</Col>*/}
                 </Row>
             </Card>
         </>

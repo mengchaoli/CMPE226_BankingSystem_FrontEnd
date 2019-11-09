@@ -10,7 +10,7 @@ class MyAlert extends Component {
             <Col span={16}>
                 <Alert
                     message="Success Tips"
-                    description="Customer added successfully."
+                    description="Action operated successfully."
                     type="success"
                     showIcon
                 />
