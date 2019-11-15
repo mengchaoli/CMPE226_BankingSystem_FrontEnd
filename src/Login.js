@@ -55,10 +55,11 @@ class Login extends React.Component {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("Login successfully");
-                    let uploadScreen = [];
-                    uploadScreen.push(<Main appContext={self.props.appContext}/>);
-                    //uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-                    self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
+                    //console.log(self.props.appContext.props);
+                    self.props.appContext.props.history.push('/main');
+                    // let uploadScreen = [];
+                    // uploadScreen.push(<Main appContext={self.props.appContext}/>);
+                    // self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
                 }
                 else if(response.data.code === 204){
                     console.log("Username password do not match");

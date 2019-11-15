@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
-import {Card, Col, Row} from "antd";
+import {Card, Col, Row, Alert} from "antd";
 import Pic from "./assets/960x1.jpg";
 import CustomMenu from "./Menu";
 import MyBusiness from "./MyBusiness";
 import AddCustomer from "./AddCustomer";
 import MyAlert from "./MyAlert";
 import DeleteCustomer from "./DeleteCustomer";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 
 class Main extends React.Component {
 
@@ -57,16 +62,16 @@ class Main extends React.Component {
               break;
       }
   }
-    handleChangeIsDeleteCustomerSuccess() {
+  handleChangeIsDeleteCustomerSuccess() {
       this.setState(
           {isDeleteCustomerSuccess: true}
       );
-    }
-    handleChangeIsAddCustomerSuccess() {
+  }
+  handleChangeIsAddCustomerSuccess() {
       this.setState(
           {isAddCustomerSuccess: true}
       );
-    }
+  }
 
   render() {
     return (

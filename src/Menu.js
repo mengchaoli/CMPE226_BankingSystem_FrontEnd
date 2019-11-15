@@ -1,5 +1,10 @@
 import { Menu, Icon, Button } from 'antd';
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 
 const { SubMenu } = Menu;
 
@@ -50,8 +55,12 @@ class CustomMenu extends React.Component {
                             </span>
                         }
                     >
-                        <Menu.Item key="5">Add Customer</Menu.Item>
-                        <Menu.Item key="6">Delete Customer</Menu.Item>
+                        <Menu.Item key="5">
+                            <Link to='/main/addCustomer' >Add Customer </Link>
+                        </Menu.Item>
+                        <Menu.Item key="6">
+                            <Link to='/main/deleteCustomer' >Delete Customer</Link>
+                        </Menu.Item>
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
                     </SubMenu>
