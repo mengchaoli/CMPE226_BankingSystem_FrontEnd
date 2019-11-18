@@ -36,7 +36,9 @@ class CustomMenu extends React.Component {
                 >
                     <Menu.Item key="1" >
                         <Icon type="pie-chart" />
-                        <span>My Business</span>
+                        <span>
+                            <Link to='/main/myBusiness' >My Business</Link>
+                        </span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop" />

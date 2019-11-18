@@ -82,8 +82,9 @@ class AddCustomer extends Component {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("add customer successfully");
-                    {callback()}
-                    //alert("Customer added successfully!");
+                    //this.props.history.push('/main');
+                    //{callback()}
+                    alert("Customer added successfully!");
                 }
             })
             .catch(function (error) {

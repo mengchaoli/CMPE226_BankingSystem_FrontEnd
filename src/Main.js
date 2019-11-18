@@ -26,17 +26,19 @@ class Main extends React.Component {
       if (this.state.key === '1') {
           return <MyBusiness/>;
       } else if (this.state.key === '5') {
-          if (this.state.isAddCustomerSuccess) {
-              return <MyAlert/>;
-          } else {
-              return <AddCustomer onceAddCustomerSuccess={this.handleChangeIsAddCustomerSuccess.bind(this)}/>;
-          }
+          return <AddCustomer onceAddCustomerSuccess={this.handleChangeIsAddCustomerSuccess.bind(this)}/>;
+          // if (this.state.isAddCustomerSuccess) {
+          //     return <MyAlert/>;
+          // } else {
+          //     return <AddCustomer onceAddCustomerSuccess={this.handleChangeIsAddCustomerSuccess.bind(this)}/>;
+          // }
       } else if (this.state.key === '6') {
-          if (this.state.isDeleteCustomerSuccess) {
-              return <MyAlert/>
-          } else {
-              return <DeleteCustomer onDeleteCustomerSuccess={this.handleChangeIsDeleteCustomerSuccess.bind(this)}/>;
-          }
+          return <DeleteCustomer onDeleteCustomerSuccess={this.handleChangeIsDeleteCustomerSuccess.bind(this)}/>;
+          // if (this.state.isDeleteCustomerSuccess) {
+          //     return <MyAlert/>
+          // } else {
+          //     return <DeleteCustomer onDeleteCustomerSuccess={this.handleChangeIsDeleteCustomerSuccess.bind(this)}/>;
+          // }
       }
   }
 
@@ -68,9 +70,10 @@ class Main extends React.Component {
       );
   }
   handleChangeIsAddCustomerSuccess() {
-      this.setState(
-          {isAddCustomerSuccess: true}
-      );
+      alert("Add customer successfully!")
+      // this.setState(
+      //     {isAddCustomerSuccess: true}
+      // );
   }
 
   render() {

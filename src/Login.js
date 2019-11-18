@@ -55,7 +55,7 @@ class Login extends React.Component {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("Login successfully");
-                    //console.log(self.props.appContext.props);
+                    console.log(self.props);
                     self.props.appContext.props.history.push('/main');
                     // let uploadScreen = [];
                     // uploadScreen.push(<Main appContext={self.props.appContext}/>);

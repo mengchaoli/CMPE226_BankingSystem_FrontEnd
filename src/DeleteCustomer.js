@@ -41,8 +41,8 @@ class DeleteCustomer extends Component {
                 console.log(response);
                 if(response.data.code === 200){
                     console.log("delete customer successfully");
-                    {callback()}
-                    //alert("Customer added successfully!");
+                    //{callback()}
+                    alert("Customer deleted successfully!");
                 }
             })
             .catch(function (error) {
